@@ -1,6 +1,5 @@
 # Title
-
-[![GitHub license](https://img.shields.io/github/license/WildSiphon/Mustachizer)](https://github.com/WildSiphon/Mustachizer/blob/main/LICENSE) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/p)
+[![Twitter](https://img.shields.io/twitter/url?label=UnJourUnMot_&style=social&url=https%3A%2F%2Ftwitter.com%2UnJourUnMot_)](https://twitter.com/UnJourUnMot_) [![GitHub license](https://img.shields.io/github/license/WildSiphon/Mustachizer)](https://github.com/WildSiphon/Mustachizer/blob/main/LICENSE) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/p)
 
 ## <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a1.png" alt="bulb" style="zoom:33%;" /> The Idea
 
@@ -9,8 +8,8 @@ The idea is this.
 ## <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png" alt="hammer_and_wrench" style="zoom:33%;" /> Installation
 
 ```bash
-$ git clone https://github.com/WildSiphon/REPO.git
-$ cd REPO
+$ git clone https://github.com/WildSiphon/UnJourUnMot.git
+$ cd UnJourUnMot
 $ pip install -r requirements.txt
 ```
 
@@ -25,14 +24,17 @@ $ python3 main.py
 **Options available**
 
 ```
-usage: main.py [-h]
+usage: main.py [-h] [--log {CRITICAL,ERROR,WARNING,INFO,DEBUG,NOTSET}]
 
-positional arguments:
-  FILES                 path(s) to the file(s)
+A description
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
 
+Settings:
+
+  --log {CRITICAL,ERROR,WARNING,INFO,DEBUG,NOTSET}
+                        choose logging level (default is "INFO")
 ```
 
 **Demo**
