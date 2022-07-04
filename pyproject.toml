@@ -1,0 +1,30 @@
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+/(
+	  \.git
+	| \.hg
+	| \.mypy_cache
+	| \.tox
+	| \.venv
+	| _build
+	| buck-out
+	| build
+	| dist
+)/
+'''
+
+[tool.vulture]
+make_whitelist = true
+min_confidence = 70
+paths = ["main.py"]
+sort_by_size = true
+verbose = false
+
+[tool.coverage.run]
+# Pattern of files we want to measure
+# include = #stuff
+
+# Pattern of files we don't want to measure
+# omit = #stuff
