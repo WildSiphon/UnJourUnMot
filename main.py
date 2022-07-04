@@ -1,24 +1,26 @@
 import argparse
 import logging
-from pathlib import Path
 
 from logger import LOGGING_LEVEL_LIST, ConfigureLogger
+from twitter.errors import TwitterConnectionError, TwitterTokenError
+from twitter.twitter_bot import BotTwitter
 
 
-def main(file: Path) -> None:
+def main() -> None:
     logger.info("Script start")
+
+    twitter_bot = BotTwitter()
+    try:
+        twitter_bot.run()
+    except (TwitterTokenError, TwitterConnectionError, KeyboardInterrupt) as error:
+        logger.error(error)
+    finally:
+        logger.info("Bot stopped")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="A description")
 
-    parser.add_argument(
-        metavar="FILES",
-        dest="path",
-        type=Path,
-        nargs="?",
-        help="path to the file",
-    )
     # ~~~~~~~~~~~~~~~~~ SCRIPT'S SETTINGS ~~~~~~~~~~~~~~~~~#
     settings = parser.add_argument_group(
         "Settings",
@@ -35,13 +37,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Create logger at the correct level
-    ConfigureLogger(log_file="script", console_level=args.log)
+    ConfigureLogger(console_level=args.log)
     logger = logging.getLogger("log")
 
-    if not args.path:
-        parser.error("Just write something.")
-    file = args.path.resolve()
-
-    logger.debug(file)
-
-    main(file=file)
+    main()
